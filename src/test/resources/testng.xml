@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-        <suite name="Suit1" parallel="false">
+        <suite name="Suit1" >
             <test name="test1">
                 <groups>
                     <run>
-                        <exclude name="smoke"/>
                         <include name="fast"/>
+                        <exclude name="smoke"/>
                     </run>
                 </groups>
                 <classes>

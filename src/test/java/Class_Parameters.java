@@ -4,11 +4,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-/**
- * Created by AnastasiaShumskaya on 11/16/2016.
- */
 public class Class_Parameters {
-    Mathematics rez = new Mathematics();
+    
+
+    private Mathematics rez = new Mathematics();
 
     @BeforeMethod
     public void setUpClass(){
@@ -25,7 +24,6 @@ public class Class_Parameters {
 
     @AfterClass
     public static void tearDownClass() {
-        System.out.println("Before Class");
-
+        System.out.println("After Class");
     }
 }

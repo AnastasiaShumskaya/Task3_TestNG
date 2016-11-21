@@ -3,28 +3,30 @@ import org.testng.annotations.*;
 
 public class Class_1 {
 
-    Mathematics rez = new Mathematics();
+
+    private Mathematics rez = new Mathematics();
+
     @BeforeClass(alwaysRun = true)
-    public void setUpClass(){
-        Mathematics rez = new Mathematics();
-        rez.setResult(1);
+    public void setUpClass() {
+        rez.setResult(0);
         System.out.println("Before Class");
     }
 
-    @BeforeMethod()
-    public void setUpMethod(){
+    @BeforeMethod(alwaysRun = true)
+    public void setUpMethod() {
         rez.setResult(0);
         System.out.println("Before Method");
     }
 
     @AfterMethod
-    public void tearDownMethod(){
+    public void tearDownMethod() {
         rez.setResult(0);
         System.out.println("After Method");
     }
 
     @BeforeTest
-    public void setUpTest(){
+    public void setUpTest() {
+        rez.setResult(0);
         System.out.println("Before Test");
     }
 
@@ -67,7 +69,5 @@ public class Class_1 {
     @AfterClass
     public static void tearDownClass() {
         System.out.println("After Class");
-
     }
-
 }

@@ -3,13 +3,12 @@ import org.testng.annotations.*;
 
 import java.util.Arrays;
 
-/**
- * Created by AnastasiaShumskaya on 11/11/2016.
- */
-
 public class Class_DataProvider {
 
-@DataProvider(name = "someData")
+
+    private Mathematics rez = new Mathematics();
+
+    @DataProvider(name = "someData")
     public Object[][] dataSet() {
         return new Object[][] {
                 { 1, 7 },
@@ -18,10 +17,9 @@ public class Class_DataProvider {
                 { 4, -1 }
         };
     }
-    Mathematics rez = new Mathematics();
 
     @BeforeMethod
-    public void setUpClass(){
+    public void setUpClass() {
         rez.setResult(0);
     }
 
@@ -48,9 +46,8 @@ public class Class_DataProvider {
         rez.divide(x,y);
         Assert.assertEquals(rez.getResult(), x/y);
     }
+
     @AfterClass
     public static void tearDownClass() {
-
     }
-
 }

@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by AnastasiaShumskaya on 11/17/2016.
- */
 public class Class_DataProviderFile {
+
+
     private static String fileName = "src\\main\\resources\\provider.txt";
-    Mathematics rez = new Mathematics();
+    private Mathematics rez = new Mathematics();
 
     @BeforeMethod
     public void setUpClass(){
@@ -21,25 +20,21 @@ public class Class_DataProviderFile {
     }
 
     @DataProvider(name = "someDataFile")
-    public  Object[][] getFromFile(){
+    public  Object[][] getFromFile() throws IOException {
 
         File tFile = new File(fileName);
-        FileReader fileReader = null;
+        FileReader fileReader = new FileReader(tFile);
         List<String> lines = new ArrayList<String>();
 
         try {
-            String line = null;
+            String line;
 
-            fileReader = new FileReader(tFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             while ((line = bufferedReader.readLine()) != null) {
                 lines.add(line);
             }
-
             bufferedReader.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -47,7 +42,7 @@ public class Class_DataProviderFile {
 
         Object[][] data = new Object[fileSize][];
 
-        for (int i = 0; i<fileSize; i++){
+        for (int i = 0; i<fileSize; i++) {
             String[] strArr = lines.get(i).split(" ");
             Object[] d = new Object[strArr.length];
             for (int j = 0; j<strArr.length; j++) {
@@ -63,6 +58,4 @@ public class Class_DataProviderFile {
         rez.add(x,y);
         Assert.assertEquals(rez.getResult(),x+y);
     }
-
-
 }
